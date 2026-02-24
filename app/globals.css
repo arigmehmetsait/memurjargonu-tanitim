@@ -3,24 +3,194 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Krow benzeri design token'lar */
+  --thamar-black-500: rgb(25, 25, 25);
+  --kiri-mist-100: rgb(249, 249, 251);
+  --kiri-mist-200: rgb(231, 231, 236);
+  --kiri-mist-500: rgb(197, 197, 209);
+  --azul-500: rgb(37, 99, 235);
+
+  /* Bootstrap primary rengi – logo mavisi */
+  --bs-primary: #2563eb;
+  --bs-primary-rgb: 37, 99, 235;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-manrope);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.opacity-hover:hover {
+  opacity: 0.85;
+}
+
+.feature-card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Header */
+.site-header {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.header-nav-link {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.header-nav-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--azul-500);
+}
+
+.header-nav-link-primary {
+  color: var(--thamar-black-500);
+}
+
+.header-nav-link-secondary {
+  color: var(--kiri-mist-500);
+  font-weight: 450;
+}
+
+.header-nav-link-secondary:hover {
+  color: var(--azul-500);
+}
+
+.header-cta-wrapper {
+  padding-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .header-cta-wrapper {
+    padding-top: 0;
+    padding-left: 0.5rem;
+  }
+}
+
+/* Admin dashboard kartları */
+.admin-dashboard-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Footer – mobil uyumlu */
+.footer-nav-columns {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .footer-nav-columns {
+    column-count: 2;
+  }
+}
+
+/* App banner (Özellikler–Neden Biz arası) */
+.app-banner-section {
+  min-height: 200px;
+}
+.app-banner-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.app-banner-inner img {
+  transition: filter 0.3s ease;
+}
+.app-banner-inner:hover img {
+  filter: drop-shadow(0 12px 40px rgba(37, 99, 235, 0.2)) !important;
+}
+@keyframes app-banner-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.app-banner-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: app-banner-glow 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-banner-section::before {
+    animation: none;
+  }
+}
+
+/* Promo banner'lar */
+.promo-banner-item {
+  cursor: default;
+}
+.promo-banner-item img {
+  transition: filter 0.25s ease;
+}
+.promo-banner-item:hover img {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+}
+
+/* CTA bölümü */
+.cta-section .cta-badges-wrapper a {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+.cta-section .cta-badges-wrapper a:hover {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25)) brightness(1.05);
+}
+.cta-section .cta-btn:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+.cta-divider {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Footer logo – koyu arka planda detayları koruyarak biraz aydınlatma */
+footer .footer-logo {
+  filter: brightness(1.15) contrast(1.05);
+}
+
+/* Paket kartı hover */
+.package-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
+}
+.package-card-highlighted:hover {
+  box-shadow: 0 24px 48px rgba(37, 99, 235, 0.35) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
