@@ -32,7 +32,7 @@ export default function IletisimPage() {
                     key={icon}
                     href={href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-primary text-decoration-none d-flex align-items-center gap-2"
                     aria-label={label}
                     title={label}

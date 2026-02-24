@@ -10,6 +10,7 @@ import { DEFAULT_FAQ } from "@/lib/constants/faq";
 export const metadata = {
   title: "Sıkça Sorulan Sorular",
   description: "Memur Jargonu hakkında sıkça sorulan sorular ve cevaplar.",
+  alternates: { canonical: "/sikca-sorulan-sorular" },
 };
 
 export default function SSSPage() {

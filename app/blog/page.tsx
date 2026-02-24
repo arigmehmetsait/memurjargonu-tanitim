@@ -7,6 +7,7 @@ import { getVideoThumbnailUrl, getVideoEmbedSrc } from "@/lib/utils/video-embed"
 export const metadata = {
   title: "Blog",
   description: "Memur Jargonu blog yazıları ve güncellemeler.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogPage() {

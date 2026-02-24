@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 export const metadata = {
   title: "Gizlilik Politikası",
   description: "Memur Jargonu gizlilik politikası.",
+  alternates: { canonical: "/gizlilik-politikasi" },
 };
 
 export default function GizlilikPage() {

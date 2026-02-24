@@ -5,6 +5,7 @@ export const metadata = {
   title: "Neden Biz",
   description:
     "Memur Jargonu'nu neden tercih etmelisiniz? KPSS ve AGS hazırlığında fark yaratan özelliklerimizi keşfedin.",
+  alternates: { canonical: "/neden-biz" },
 };
 
 export default function NedenBizPage() {

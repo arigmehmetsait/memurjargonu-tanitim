@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 export const metadata = {
   title: "Kullanım Koşulları",
   description: "Memur Jargonu kullanım koşulları.",
+  alternates: { canonical: "/kullanim-kosullari" },
 };
 
 export default function KullanimKosullariPage() {

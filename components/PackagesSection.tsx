@@ -186,7 +186,7 @@ export function PackagesSection({ title, subtitle, packages }: PackagesSectionPr
                   <Link
                     href={STORE_PLANS_URL}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className={`btn btn-lg w-100 rounded-3 fw-semibold text-decoration-none ${
                       pkg.highlighted ? "btn-light" : "btn-primary"
                     }`}

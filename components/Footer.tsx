@@ -21,7 +21,7 @@ export function Footer() {
       <Container>
         <Row className="g-3 g-md-4 text-center">
           <Col xs={12} md={4} className="order-1">
-            <Link href="/" className="d-inline-block mb-2">
+            <Link href="/" className="d-inline-block mb-2" title="Ana Sayfa">
               <Image
                 src={LOGO_PATH}
                 alt={SITE_NAME}
@@ -42,9 +42,10 @@ export function Footer() {
                     key={icon}
                     href={href}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="text-white text-decoration-none opacity-hover"
                     aria-label={label}
+                    title={label}
                   >
                     <Icon size={22} />
                   </Link>
@@ -56,7 +57,7 @@ export function Footer() {
             <ul className="list-unstyled mb-0 footer-nav-columns text-center text-md-start" style={{ fontSize: "0.9375rem" }}>
               {NAV_LINKS.map(({ href, label }) => (
                 <li key={href} className="mb-2">
-                  <Link href={href} className="text-white text-decoration-none opacity-hover">
+                  <Link href={href} className="text-white text-decoration-none opacity-hover" title={label}>
                     {label}
                   </Link>
                 </li>
@@ -67,7 +68,7 @@ export function Footer() {
             <ul className="list-unstyled mb-0 text-center text-md-start" style={{ fontSize: "0.9375rem" }}>
               {FOOTER_LEGAL_LINKS.map(({ href, label }) => (
                 <li key={href} className="mb-2">
-                  <Link href={href} className="text-white text-decoration-none opacity-hover">
+                  <Link href={href} className="text-white text-decoration-none opacity-hover" title={label}>
                     {label}
                   </Link>
                 </li>

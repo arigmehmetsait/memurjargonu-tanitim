@@ -7,6 +7,7 @@ export const metadata = {
   title: "Paketler",
   description:
     "Memur Jargonu abonelik paketlerini inceleyin. Detaylar için mağazamızı ziyaret edin.",
+  alternates: { canonical: "/paketler" },
 };
 
 export default function PaketlerPage() {
@@ -26,7 +27,7 @@ export default function PaketlerPage() {
                 size="lg"
                 href={STORE_PLANS_URL}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 as="a"
                 className="px-5"
               >

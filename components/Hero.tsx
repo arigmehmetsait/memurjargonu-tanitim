@@ -108,7 +108,7 @@ export function Hero({ title, subtitle, showAppButtons = true, examBadges, banne
                     </span>
                   );
                   return badge.href ? (
-                    <Link key={i} href={badge.href} className="text-decoration-none">
+                    <Link key={i} href={badge.href} className="text-decoration-none" title={badge.label}>
                       {content}
                     </Link>
                   ) : (

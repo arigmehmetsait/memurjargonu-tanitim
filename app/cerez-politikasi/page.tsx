@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 export const metadata = {
   title: "Çerez Politikası",
   description: "Memur Jargonu çerez politikası.",
+  alternates: { canonical: "/cerez-politikasi" },
 };
 
 export default function CerezPage() {

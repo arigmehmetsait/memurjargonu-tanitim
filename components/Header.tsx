@@ -36,7 +36,7 @@ export function Header() {
     >
       <Navbar expand="lg" bg="transparent" collapseOnSelect className="py-3 py-lg-2">
         <Container>
-          <Navbar.Brand as={Link} href="/" className="d-flex align-items-center gap-2">
+          <Navbar.Brand as={Link} href="/" className="d-flex align-items-center gap-2" title="Ana Sayfa">
             <Image
               src={LOGO_PATH}
               alt={SITE_NAME}
@@ -63,6 +63,7 @@ export function Header() {
                       key={href}
                       as={Link}
                       href={href}
+                      title={label}
                       className={`px-3 py-2 rounded header-nav-link ${
                         primary ? "header-nav-link-primary" : "header-nav-link-secondary"
                       }`}

@@ -52,10 +52,11 @@ export function AppStoreBadges({
       <a
         href={APP_STORE_URL}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="text-decoration-none d-inline-block opacity-hover"
         style={{ height: h }}
         aria-label="App Store'dan İndir"
+        title="App Store'dan İndir"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -69,10 +70,11 @@ export function AppStoreBadges({
       <a
         href={PLAY_STORE_URL}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="text-decoration-none d-inline-block opacity-hover"
         style={{ height: playH }}
         aria-label="Google Play'den Al"
+        title="Google Play'den Al"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

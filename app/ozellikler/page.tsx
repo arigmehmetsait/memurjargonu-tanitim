@@ -7,6 +7,7 @@ export const metadata = {
   title: "Özellikler",
   description:
     "Memur Jargonu uygulamasının özellikleri: eğitim videoları, denemeler, uygulama içi etkinlikler, memur ilanları.",
+  alternates: { canonical: "/ozellikler" },
 };
 
 export default function OzelliklerPage() {

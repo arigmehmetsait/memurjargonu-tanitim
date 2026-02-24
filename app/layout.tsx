@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
-import { SITE_NAME, SITE_DESCRIPTION, LOGO_PATH } from "@/lib/constants/navigation";
+import { SITE_NAME, SITE_DESCRIPTION, LOGO_PATH, SITE_URL } from "@/lib/constants/navigation";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -12,6 +12,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   icons: {
     icon: LOGO_PATH,
     shortcut: LOGO_PATH,
@@ -22,8 +24,8 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: ["KPSS", "AGS", "memur", "sınav hazırlık", "eğitim"],
   authors: [{ name: SITE_NAME }],
+  publisher: SITE_NAME,
   openGraph: {
     type: "website",
   },

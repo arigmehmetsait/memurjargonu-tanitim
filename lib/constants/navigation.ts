@@ -4,7 +4,10 @@
 
 export const SITE_NAME = "Memur Jargonu";
 export const SITE_DESCRIPTION =
-  "KPSS ve AGS sınavlarına hazırlanan adaylar için eğitim videoları, denemeler, memur ilanları ve daha fazlası.";
+  "Memur Jargonu ile KPSS ve AGS sınavlarına hazırlanın. Eğitim videoları, deneme sınavları, memur ilanları ve uzman içeriklerle sınav başarınızı artırın.";
+
+/** Sitenin ana URL'i – canonical ve metadataBase için */
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://memurjargonu.com";
 
 export const STORE_URL = "https://magaza.memurjargonu.com";
 /** Mağaza paketler sayfası */
