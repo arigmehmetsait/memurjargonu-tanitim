@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memur Jargonu Tanıtım Sitesi
 
-## Getting Started
+KPSS ve AGS sınavlarına hazırlanan adaylar için Memur Jargonu mobil uygulamasının tanıtım sitesi.
 
-First, run the development server:
+## Kurulum
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Ortam değişkenlerini ayarlayın:
+   ```bash
+   cp .env.example .env
+   ```
+   `.env` dosyasında:
+   - `ADMIN_USERNAME` ve `ADMIN_PASSWORD` değerlerini güncelleyin
+   - Firebase bilgilerini ekleyin (aşağıya bakın)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Firebase Kurulumu
 
-## Learn More
+1. [Firebase Console](https://console.firebase.google.com) → Proje oluşturun veya mevcut projeyi seçin
+2. **Project Settings** → **Service accounts** → **Generate new private key**
+3. İndirilen JSON dosyasından aşağıdaki değerleri alın:
 
-To learn more about Next.js, take a look at the following resources:
+   **Seçenek A – Ayrı değişkenler:** `.env` dosyasına ekleyin:
+   ```
+   FIREBASE_PROJECT_ID=proje_id
+   FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxx@proje.iam.gserviceaccount.com
+   FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+   ```
+   (`FIREBASE_PRIVATE_KEY` değerinde `\n` karakterlerini olduğu gibi bırakın)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   **Seçenek B – Tek JSON:** Tüm service account JSON'unu minify edip tek satır olarak:
+   ```
+   FIREBASE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"...","private_key":"...",...}
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Firestore’u etkinleştirin: **Firestore Database** → **Create database** → Test/Production seçin
 
-## Deploy on Vercel
+5. İsteğe bağlı seed (örnek blog yazısı):
+   ```bash
+   npm run db:seed
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Sayfalar
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Ana sayfa** (`/`): Hero, özellikler, neden biz, CTA
+- **Neden Biz** (`/neden-biz`)
+- **Özellikler** (`/ozellikler`)
+- **Paketler** (`/paketler`): Mağaza yönlendirmesi (magaza.memurjargonu.com)
+- **Blog** (`/blog`): Liste ve tekil yazılar
+- **SSS** (`/sikca-sorulan-sorular`)
+- **İletişim** (`/iletisim`)
+- **Yasal sayfalar**: Gizlilik, Çerez, Kullanım Koşulları
+
+## Admin Panel
+
+- Adres: `/admin`
+- Giriş: `.env` içindeki `ADMIN_USERNAME` ve `ADMIN_PASSWORD` ile
+- Blog yazıları ekleme/düzenleme
+- Sayfa içeriği yönetimi (yakında)
+
+## Vercel Deploy
+
+1. Projeyi Vercel’e bağlayın
+2. **Settings** → **Environment Variables** bölümünde:
+   - `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`
+   - `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY` (veya `FIREBASE_SERVICE_ACCOUNT_JSON`)
+
+3. `FIREBASE_PRIVATE_KEY` için: Değeri çift tırnak içinde girin; `\n` karakterleri string içinde kalmalı.
+
+## Teknoloji
+
+- Next.js 16 (App Router)
+- React 19
+- Bootstrap 5, react-bootstrap
+- Framer Motion
+- Firebase (Firestore)
+- TypeScript
